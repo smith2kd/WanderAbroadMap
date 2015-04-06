@@ -66,13 +66,20 @@ jQuery( document ).ready( function( $ ) {
 	
 }
 // BEGIN CODE FOR LAYING DOWN A RED LAYER ON THE SELECTED AREA
+//http://stackoverflow.com/questions/11338776/google-maps-fusion-tables-hover-and-click
 layer = new google.maps.FusionTablesLayer({
 	query:{
 		select: 'geometry',
 		from: '1uL8KJV0bMb7A8-SkrIe0ko2DMtSypHX52DatEE4',
-		where: "Name = 'Brazil'"
+		where: "Name = 'Brazil'"//Need to change this to not hardcoded
 		
-	}
+	},
+	styles:[{
+		polygonOptions:{
+			fillColor:'#00FF00',
+			fillOpacity: 0.01
+		}
+	}]
 });
 layer.setMap(map);
 //END CODE FOR LAYING DOWN A RED LAYER ON THE SELECTED AREA
