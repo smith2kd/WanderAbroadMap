@@ -71,18 +71,34 @@ layer = new google.maps.FusionTablesLayer({
 	query:{
 		select: 'geometry',
 		from: '1uL8KJV0bMb7A8-SkrIe0ko2DMtSypHX52DatEE4',
-		where: "Name = 'Brazil'"//Need to change this to not hardcoded
+	//	where: "Name = 'Brazil'"//Need to change this to not hardcoded
 		
+	},
+	options:{
 	},
 	styles:[{
 		polygonOptions:{
 			fillColor:'#00FF00',
 			fillOpacity: 0.01
+			
 		}
 	}]
 });
 layer.setMap(map);
 //END CODE FOR LAYING DOWN A RED LAYER ON THE SELECTED AREA
+
+
+google.maps.event.addListener(layer,'click',function(e){
+	
+ e.infoWindowHtml = e.row['Name'].value + "<br>" + e.row['Google requests'].value;
+	
+	
+	
+	
+});
+
+
+
 
 //BEGIN Code for searching for an area via the search box
 $('#searchButton').on('click',function(){
