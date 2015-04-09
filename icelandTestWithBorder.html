@@ -71,7 +71,6 @@ layer = new google.maps.FusionTablesLayer({
 	query:{
 		select: 'geometry',
 		from: '1uL8KJV0bMb7A8-SkrIe0ko2DMtSypHX52DatEE4',
-	//	where: "Name = 'Brazil'"//Need to change this to not hardcoded
 		
 	},
 	options:{
@@ -90,7 +89,10 @@ layer.setMap(map);
 
 google.maps.event.addListener(layer,'click',function(e){
 	
- e.infoWindowHtml = e.row['Name'].value + "<br>" + e.row['Google requests'].value;
+ e.infoWindowHtml = e.row['Name'].value + "<br>" + "<a href='countryInfo.html'>" + e.row['Google requests'].value + "</a>";
+
+
+//zoomTo(e.row['Name'].value); not functional yet
 	
 	
 	
